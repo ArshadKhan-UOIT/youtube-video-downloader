@@ -13,21 +13,25 @@ if (len(sys.argv) == 2):
         exit()
     print("[+] Link connection success!")
 
-# video = yt.streams.filter(progressive=True,file_extension='mp4').order_by('resolution').desc().first()
-# print(video.mime_type)
-# extension = video.mime_type
-# print(extension.split("/"))
-# print(extension.split("/")[0])
-# print(extension.split("/")[1])
-# print(yt.streams.filter(progressive=True).all())
-# print()
-# print(yt.streams.filter(progressive=True).order_by('resolution').desc().all())
-# print()
-# print(yt.streams.filter(progressive=True,file_extension='mp4').order_by('resolution').desc().first())
-# print(yt.streams.filter(adaptive=True,file_extension='mp4').order_by('resolution').desc().first())
+    # video = yt.streams.filter(progressive=True,file_extension='mp4').order_by('resolution').desc().first()
+    # print(video.mime_type)
+    # extension = video.mime_type
+    # print(extension.split("/"))
+    # print(extension.split("/")[0])
+    # print(extension.split("/")[1])
+    # print(yt.streams.filter(progressive=True).all())
+    # print()
+    # print(yt.streams.filter(progressive=True).order_by('resolution').desc().all())
+    # print()
+    # print(yt.streams.filter(progressive=True,file_extension='mp4').order_by('resolution').desc().first())
+    # print(yt.streams.filter(adaptive=True,file_extension='mp4').order_by('resolution').desc().first())
+    # print(yt.streams.get_highest_resolution())
+    # print(yt.streams.filter(progressive=True,file_extension='mp4').order_by('resolution').desc().first())
+
 
     try:
         video = yt.streams.filter(progressive=True,file_extension='mp4').order_by('resolution').desc().first()
+        video = yt.streams.get_highest_resolution() # this is the same as the above
         video.download()
         # yt.streams.filter(
         #     progressive=True,
